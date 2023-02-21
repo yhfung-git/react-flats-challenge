@@ -20,6 +20,7 @@ body {
   width: 40%;
   position: sticky !important;
   top: 0 !important;
+  filter: brightness(2);
 }
 
 .flat-list {
@@ -32,6 +33,11 @@ body {
     width: calc(50% - 10px);
     margin-right: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(0.98);
+    }
   }
 }
 

@@ -3,9 +3,19 @@ import Flat from './flat';
 
 class FlatList extends Component {
   renderList = () => {
-    return this.props.flats.map(({name, imageUrl, price, priceCurrency}, index) =>
-      <Flat name={name} image={imageUrl} price={price} currency={priceCurrency} key={index}/>
+    return this.props.flats.map((flat, index) =>
+      <Flat
+        flat={flat}
+        index={index}
+        key={index}
+        selected={flat.name === this.props.selected.name}
+        handleClick={this.handleClick}
+      />
     );
+  }
+
+  handleClick = (index) => {
+    this.props.selectedFlat(index)
   }
 
   render() {
