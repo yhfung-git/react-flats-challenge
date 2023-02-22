@@ -6,7 +6,7 @@
   color: white;
   position: relative;
   &.active {
-    border: 5px solid greenyellow;
+    border: 5px solid #adff2f;
   }
 }
 .card-category {
@@ -15,11 +15,15 @@
   left: 10px;
   font-size: 15px;
   text-transform: uppercase;
+  background: tomato;
+  padding: 0 5px 0 5px;
+  border-radius: 3px;
 }
 .card-description {
   position: absolute;
   bottom: 10px;
   left: 10px;
+  font-weight: bolder;
 }
 .card-description h2 {
   font-size: 20px;

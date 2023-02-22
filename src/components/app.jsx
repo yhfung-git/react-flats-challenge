@@ -16,13 +16,6 @@ class App extends Component {
     };
   }
 
-  center() {
-    return {
-      lat: this.state.selectedFlat.lat,
-      lng: this.state.selectedFlat.lng
-    };
-  }
-
   selectedFlat = (index) => {
     this.setState({
       selectedFlat: flats[index]
@@ -30,13 +23,28 @@ class App extends Component {
   }
 
   render() {
-    const MyMapComponent = withScriptjs(withGoogleMap((props) =>
-    <GoogleMap
-      defaultZoom={15}
-      defaultCenter={this.center()}
-    >
-      {props.isMarkerShown && <Marker position={this.center()} />}
-    </GoogleMap>
+    const center = {
+      lat: this.state.selectedFlat.lat,
+      lng: this.state.selectedFlat.lng
+    }
+
+    const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
+
+    const MyMapComponent = withScriptjs(withGoogleMap(() =>
+      <GoogleMap
+        defaultZoom={15}
+        defaultCenter={center}
+      >
+        <InfoBox defaultPosition={new google.maps.LatLng(center.lat, center.lng)}>
+          <div style={{ backgroundImage: `url('${this.state.selectedFlat.imageUrl}')`, width: '210px', height: '210px', backgroundPosition: 'center', backgroundSize:'cover', borderRadius: '5px' }}>
+            <div style={{ padding: '5px',fontSize: '13px', color: 'white', fontWeight: 'bolder', backgroundColor: 'tomato', textAlign: 'center', borderRadius: '5px 5px 0 0' }}>
+              {this.state.selectedFlat.name}{<br></br>}
+              {this.state.selectedFlat.price} {this.state.selectedFlat.priceCurrency}
+            </div>
+          </div>
+        </InfoBox>
+        <Marker position={center}></Marker>
+      </GoogleMap>
     ))
 
     const style = { height: `100vh` }
@@ -51,7 +59,7 @@ class App extends Component {
         <div className='map-container'>
         <MyMapComponent
           isMarkerShown
-          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+          googleMapURL="https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places"
           loadingElement={<div style={style} />}
           containerElement={<div style={style} />}
           mapElement={<div style={style} />}
