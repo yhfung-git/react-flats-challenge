@@ -1,6 +1,6 @@
 const flats = [
   {
-    name: "Best Western Aubagne",
+    name: "The Steps of the Sacre Coeur",
     imageUrl: "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat1.jpg",
     price: 164,
     priceCurrency: "EUR",
@@ -8,7 +8,7 @@ const flats = [
     lng: 5.568813
   },
   {
-    name: "Ibis Lyon",
+    name: "Trendy Apt at Lyon",
     imageUrl: "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat2.jpg",
     price: 200,
     priceCurrency: "EUR",
@@ -16,7 +16,7 @@ const flats = [
     lng: 4.843144
   },
   {
-    name: "Super 60m2 in trendy neighborhood!",
+    name: "Super 60m2 in trendy",
     imageUrl: "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat3.jpg",
     price: 150,
     priceCurrency: "EUR",
