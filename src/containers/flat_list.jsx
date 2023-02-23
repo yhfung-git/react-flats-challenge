@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { setFlats } from '../actions';
-import Flat from '../components/flat';
+import Flat from './flat';
 
 
 class FlatList extends Component {
@@ -13,16 +13,10 @@ class FlatList extends Component {
         flat={flat}
         index={index}
         key={index}
-        selected={flat.name === this.props.selected.name}
-        handleClick={this.handleClick}
       />
     );
   }
-
-  handleClick = (index) => {
-    this.props.selectedFlat(index)
-  }
-
+  
   // Trigger the action
   componentWillMount() {
     this.props.setFlats();
