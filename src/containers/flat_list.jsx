@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { setFlats } from '../actions';
 import Flat from '../components/flat';
+
 
 class FlatList extends Component {
   renderList = () => {
@@ -18,6 +23,11 @@ class FlatList extends Component {
     this.props.selectedFlat(index)
   }
 
+  // Trigger the action
+  componentWillMount() {
+    this.props.setFlats();
+  }
+
   render() {
     return (
       <div className="flat-list">
@@ -25,7 +35,21 @@ class FlatList extends Component {
       </div>
     )
   }
-
 }
 
-export default FlatList;
+// To connect the action
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { setFlats: setFlats },
+    dispatch
+  );
+}
+
+// To connect the Redux State
+function mapReduxStateToProps(reduxState) {
+  return {
+    flats: reduxState.flats
+  };
+}
+
+export default connect(mapReduxStateToProps, mapDispatchToProps)(FlatList);
