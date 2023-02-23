@@ -8,7 +8,8 @@ class Map extends Component {
       lng: this.props.selectedFlat.lng
     }
 
-    const style = { height: `100vh` }
+    const style = { height: '100vh' }
+    const mapImage= { backgroundImage: `url('${this.props.selectedFlat.imageUrl}')` }
 
     const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 
@@ -18,8 +19,8 @@ class Map extends Component {
         defaultCenter={center}
       >
         <InfoBox defaultPosition={new google.maps.LatLng(center.lat, center.lng)}>
-          <div style={{ backgroundImage: `url('${this.props.selectedFlat.imageUrl}')`, width: '210px', height: '210px', backgroundPosition: 'center', backgroundSize:'cover', borderRadius: '5px' }}>
-            <div style={{ padding: '5px',fontSize: '13px', color: 'white', fontWeight: 'bolder', backgroundColor: 'tomato', textAlign: 'center', borderRadius: '5px 5px 0 0' }}>
+          <div className="map-box" style={mapImage}>
+            <div className='map-box-title'>
               {this.props.selectedFlat.name}{<br></br>}
               {this.props.selectedFlat.price} {this.props.selectedFlat.priceCurrency}
             </div>

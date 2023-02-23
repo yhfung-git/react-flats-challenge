@@ -39,3 +39,21 @@ body {
     }
   }
 }
+
+.map-box {
+  width: 210px;
+  height: 210px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+
+  .map-box-title {
+    padding: 5px;
+    font-size: 13px;
+    color: white;
+    font-weight: bolder;
+    background-color: tomato;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+  }
+}
