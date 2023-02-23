@@ -37,7 +37,7 @@ class FlatList extends Component {
   }
 }
 
-// To connect the action
+// Connect to the action
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     { setFlats: setFlats },
@@ -45,7 +45,7 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-// To connect the Redux State
+// Connect to the Redux State in index.jsx
 function mapReduxStateToProps(reduxState) {
   return {
     flats: reduxState.flats

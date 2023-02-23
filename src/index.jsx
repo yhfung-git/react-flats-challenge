@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from "@reduxjs/toolkit";
 import flatsReducer from './reducers/flats_reducer';
 
+// create a Redux State to store data
 const store = configureStore({
   reducer: {
     flats: flatsReducer
