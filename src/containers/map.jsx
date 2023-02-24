@@ -34,11 +34,30 @@ class Map extends Component {
       return (
         <div className='map-container'>
           <MyMapComponent
-          isMarkerShown
-          googleMapURL="https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places"
-          loadingElement={<div style={style} />}
-          containerElement={<div style={style} />}
-          mapElement={<div style={style} />}
+            isMarkerShown
+            googleMapURL="https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places"
+            loadingElement={<div style={style} />}
+            containerElement={<div style={style} />}
+            mapElement={<div style={style} />}
+          />
+        </div>
+      )
+    } else {
+      const MyMapComponent = withScriptjs(withGoogleMap(() =>
+        <GoogleMap
+          defaultZoom={15}
+          defaultCenter={{lat: 43.294336, lng: 5.568813}}
+        >
+        </GoogleMap>
+      ))
+      return (
+        <div className='map-container'>
+          <MyMapComponent
+            isMarkerShown={false}
+            googleMapURL="https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places"
+            loadingElement={<div style={{height: '100vh'}} />}
+            containerElement={<div style={{height: '100vh'}} />}
+            mapElement={<div style={{height: '100vh'}} />}
           />
         </div>
       )
